@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'EB Garamond', serif;
+}
+
+@layer components {
+    /* Make all buttons small light gray by default */
+    button {
+        @apply bg-gray-200 text-black text-xs px-2 py-1 rounded;
+    }
+}
+
+/* Stronger override to defeat utility classes that set explicit colors/sizes */
+button, button[class] {
+    background-color: #e5e7eb !important;
+    color: #000 !important;
+    font-size: 0.75rem !important;
+    padding: 0.25rem 0.5rem !important;
+    border-radius: 0.25rem !important;
+    border: 2px solid #000 !important;
+    transition: background-color 150ms ease, color 150ms ease, transform 80ms ease;
+}
+
+/* Hover state: invert colors and lift slightly */
+button:hover, button[class]:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Active/focus states for accessibility */
+button:active, button[class]:active {
+    transform: translateY(0) !important;
+}
+button:focus {
+    outline: 2px solid #000 !important;
+    outline-offset: 2px !important;
+}
